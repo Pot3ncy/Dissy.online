@@ -4,234 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Image Sections</title>
-    
-    <!-- Fonts -->
+    <link rel="stylesheet" href="styles2.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oxygen:wght@300;400;700&family=Wix+Madefor+Text:ital,wght@0,400..800;1,400..800&display=swap" rel="stylesheet">
-    
-    <style>
-        /* Header Styles */
-        .header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 50px;
-            background: rgb(255, 255, 255);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            z-index: 1000;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 5%;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 30px;
-        }
-
-        .nav-link {
-        text-decoration: none;
-        color: #333;
-        font-family: 'Oxygen', sans-serif;
-        font-weight: 700;
-        font-size: 0.8em;
-        letter-spacing: 0.2em;
-        transition: all 0.3s ease;
-        position: relative;
-        display: inline-block;
-        padding-bottom: 3px;
-    }
-
-    .nav-link::after {
-        content: '';
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        height: 0;
-        background: radial-gradient(180deg, rgba(0, 0, 0, 0.2), rgb(255, 255, 255));
-        transition: all 0.3s ease;
-        opacity: 0;
-    }
-
-    .nav-link:hover {
-        transform: scale(1.1);
-    }
-
-    .nav-link:hover::after {
-        height: 2px;
-        opacity: 1;
-    }
-
-        .hamburger {
-            display: none;
-            cursor: pointer;
-            background: none;
-            border: none;
-            padding: 5px;
-        }
-
-        .hamburger span {
-            display: block;
-            width: 25px;
-            height: 2px;
-            background: #333;
-            margin: 5px 0;
-            transition: all 0.3s ease;
-        }
-
-        /* Mobile Menu Styles */
-        @media (max-width: 768px) {
-            .nav-links {
-                position: fixed;
-                top: 0px;
-                right: -100%;
-                height: calc(100vh);
-                background: white;
-                flex-direction: column;
-                width: 30%;
-                padding: 20px;
-                box-shadow: -2px 0 10px rgba(0,0,0,0.1);
-                transition: right 0.3s ease;
-            }
-
-            .nav-links.active {
-                right: 0;
-            }
-
-            .hamburger {
-                display: block;
-            }
-
-            .hamburger.active span:nth-child(1) {
-                transform: rotate(45deg) translate(5px, 5px);
-            }
-
-            .hamburger.active span:nth-child(2) {
-                opacity: 0;
-            }
-
-            .hamburger.active span:nth-child(3) {
-                transform: rotate(-45deg) translate(7px, -6px);
-            }
-        }
-
-        /* Section Styles */
-        body {
-            padding-top: 70px;
-            margin: 0;
-            overflow-x: hidden;
-        }
-
-        .section-container {
-            padding: 60px 0;
-            margin: 40px auto;
-            text-align: center;
-            max-width: 600px;
-            padding: 60px 80px;
-        }
-
-        .image-wrapper {
-        display: inline-block;
-        position: relative;
-        text-align: left;
-        max-width: 350px;
-    }
-
-    .featured-image {
-        width: auto;
-        max-width: 100%;
-        height: auto;
-        max-height: 75vh;
-        display: block;
-        filter:grayscale(1);
-    }
-
-    .caption-box {
-        width: 100%;
-        margin: 15px 0 0 0;
-        padding: 0;
-        text-align: left;
-    }
-
-        .caption-name {
-            color: black;
-            font-family: 'Oxygen', sans-serif;
-            font-weight: 700;
-            font-size: clamp(1rem, 2vw, 1.1rem);
-            letter-spacing: .1rem;
-            display: block;
-        }
-
-        .caption-description {
-            color: rgb(176, 176, 176);
-            font-family: 'Wix Madefor Text';
-            font-weight: 400;
-            font-size: clamp(0.8rem, 1.5vw, 0.9rem);
-            line-height: 1.2;
-            margin-top: 2px;
-            letter-spacing: 0.02rem;
-            display: block;
-        }
-
-        @media (max-width: 480px) {
-            .section-container {
-                padding: 40px 15px;
-                margin: 20px auto;
-            }
-            
-            .featured-image {
-                max-height: 50vh;
-            }
-        }
-
-        .text-section {
-            width: 60vw;
-            margin: 0 auto;
-            padding: 0px 0px;
-            padding-bottom: 160px;
-            font-family: 'Wix Madefor Text', sans-serif;
-            text-align: center;
-        }
-
-        .text-section p {
-            font-size: 1.1rem;
-            line-height: 1.6;
-            color: #333;
-            max-width: 600px;
-            margin: 0 auto;
-            line-height: 1.4em;
-            padding-bottom: 40px;
-        }
-
-
-        .bold {
-            font-size: 1rem;
-            line-height: 1.6;
-            color: #333;
-            max-width: 600px;
-            margin: 0 auto;
-            line-height: 1.4em;
-        }
-
-        @media (max-width: 768px) {
-            .text-section {
-                width: 80%;
-                padding: 30px 0;
-            }
-            
-            .text-section p {
-                font-size: 1rem;
-            }
-        }
-        
-    </style>
 </head>
 <body>
-    <!-- Full-width Header -->
     <header class="header">
         <a href="index.html" class="nav-link">HOME</a>
         <button class="hamburger">
@@ -240,13 +18,12 @@
             <span></span>
         </button>
         <div class="nav-links">
-            <a href="Page3.html" class="nav-link">WORKS</a>
+            <a href="/Page3.html" class="nav-link">WORKS</a>
             <a href="https://www.potencyus.com" class="nav-link">POTENCY™</a>
-            <a href="Page2.html" class="nav-link">CONTACT</a>
+            <a href="/Page2.html" class="nav-link">CONTACT</a>
         </div>
     </header>
 
-    <!-- Sections -->
     <section class="section-container">
         <div class="image-wrapper">
             <img src="Me.png" alt="Project 1" class="featured-image">
@@ -259,43 +36,15 @@
 
     <section class="text-section">
         <p>Dissy, or ‘Brandon Meyers,’ was born in 2003 in New York and develops projects in his studio in Connecticut.
-<br>
-<br>
+            <br><br>
             Films and real-world experience heavily inspire Dissy. He captures these elements within his pieces as he presents a unique perspective of society.
-            <br>
-            <br>
-            In 2024, Dissy founded <p2 class="bold"><b>POTENCY™</b></p2> to study and document the explicit truth of real-world situations with curated prints and selected garments. <p2 class="bold"><b>POTENCY™</b></p2> reveals society’s potent behaviors and functionality. 
-            <br>
-            <br>
-            To contact Dissy visit the <a href="Page2.html">contact page</a> or send an email to <u><i>dissy@potencyus.com<u><i></p>
+            <br><br>
+            In 2024, Dissy founded <span class="bold"><b>POTENCY™</b></span> to study and document the explicit truth of real-world situations with curated prints and selected garments. <span class="bold"><b>POTENCY™</b></span> reveals society’s potent behaviors and functionality. 
+            <br><br>
+            To contact Dissy visit the <a href="Page2.html">contact page</a> or send an email to <u><i>dissy@potencyus.com</i></u>
+        </p>
     </section>
-    
-    <!-- Continue adding sections 5-12 following the same pattern -->
-    <script>
-        // Mobile Menu Toggle
-        const hamburger = document.querySelector('.hamburger');
-        const navLinks = document.querySelector('.nav-links');
 
-        hamburger.addEventListener('click', () => {
-            hamburger.classList.toggle('active');
-            navLinks.classList.toggle('active');
-        });
-
-        // Close menu when clicking outside
-        document.addEventListener('click', (e) => {
-            if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
-                hamburger.classList.remove('active');
-                navLinks.classList.remove('active');
-            }
-        });
-
-        // Close menu on window resize
-        window.addEventListener('resize', () => {
-            if (window.innerWidth > 768) {
-                hamburger.classList.remove('active');
-                navLinks.classList.remove('active');
-            }
-        });
-    </script>
+    <script src="script2.js"></script>
 </body>
 </html>
